@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>destructuring Spread object arrays</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+  <!-- LOAD FUNCTIONS -->
+  <div class="text-center">
+    <h2>Business Extra Data</h2>
+    <div id="business-extra"></div>
+
+    <h2>User Year</h2>
+    <div id="year"></div>
+
+    <h2>User data</h2>
+    <div id="user-data"></div>
+  </div>
+  <script src="./destructuring-spread.js"></script>
+
+
+  <!-- EXECUTE FUNCTIONS DEFINED INTO destructuring-spread.js.JS-->
+  <script>
+    const businessExtra = getBusinessExtra(business, {
+      twitter: '@business',
+      facebook: business.name.split(' ').join('-'),
+      id: 21,
+    });
+
+    validateBusinessOverrideData(business, businessExtra);
+
+    const $businessData = document.getElementById('business-extra');
+    $businessData.innerHTML = paintBusinessData(businessExtra);
+
+
+    const $year = document.getElementById('year');
+    $year.innerHTML = getYear(['Test', 'Test', 21]);
+
+
+    const $userData = document.getElementById('user-data');
+    const user = getUserData({
+      name: 'Jose'
+    })
+    $userData.innerHTML = `
+      <p>${user.name}</p>
+      <p>${user.lastName}</p>
+      <p>${user.year}</p>
+    `
+
+
+
+
+
+    function paintBusinessData(businessExtra) {
+      return `
+        <h3>Business: <span>${businessExtra.id}</span> ${businessExtra.name }</h3>
+      `
+    }
+
+    // This is only for validation, keep going bruh
+    function validateBusinessOverrideData(business, businessExtra) {
+      for (const key in business) {
+        if (business.hasOwnProperty(key)) {
+          const value = business[key];
+
+          if (!(key in businessExtra)) {
+            throw new Error(`Key '${key}' do not exist into businessExtra`);
+          }
+
+          if (value !== businessExtra[key]) {
+            throw new Error(`Look! You have overwritten the value`);
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

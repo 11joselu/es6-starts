@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Arrow functions</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+  <h2 class="text-center">Top 5 business</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Business Name</th>
+        <th>Business Type</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody id="winners">
+    </tbody>
+  </table>
+  <h2 class="text-center">Total de adutos</h2>
+  <p class="text-center">Total de adultos encontrados <strong id="adults-count"></strong></p>
+
+  <h2 class="text-center">Button action</h2>
+  <div class="text-center">
+    <button id="btn">Click me!</button>
+  </div>
+  <!-- LOAD FUNCTIONS -->
+  <script src="./arrow-functions.js"></script>
+
+  <!-- EXECUTE FUNCTIONS DEFINED INTO ARROW-FUNCTIONS.JS-->
+  <script>
+    /**********
+     *********/
+
+    const $tbody = document.getElementById('winners');
+    $tbody.innerHTML = paintTopBusiness(getTopFiveBusinesses());
+
+    const $adultsCount = document.getElementById('adults-count');
+    $adultsCount.innerHTML = getAllAdults(ages).length;
+
+    const $button = document.getElementById('btn');
+    changeButtonTextOnClick($button);
+
+
+
+
+
+
+
+
+
+
+    /* DON'T BE PANIC,
+      YOU WILL UNDERSTAND WHAT THE HELL
+      I'M DOING HERE */
+    function paintTopBusiness(winners) {
+      return winners.map(({
+        businessName,
+        businessType,
+        position
+      }) => {
+        return `
+          <tr>
+            <td>
+              ${businessName}
+            </td>
+            <td>
+              ${businessType}
+            </td>
+            <td>
+              ${position}
+            </td>
+          </tr>
+        `
+      }).join('');
+    }
+    /**********
+     *********/
+  </script>
+</body>
+
+</html>

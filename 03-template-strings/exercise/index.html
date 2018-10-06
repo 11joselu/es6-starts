@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Templates Strings</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+  <div class="text-center">
+    <h2>Top Business</h2>
+    <div id="top"></div>
+
+    <h2>Greeting</h2>
+    <div id="greeting"></div>
+
+  </div>
+  <!-- LOAD FUNCTIONS -->
+  <script src="./template-strings.js"></script>
+  <!-- EXECUTE FUNCTIONS DEFINED INTO template-strings.JS-->
+  <script>
+    const $top = document.getElementById('top');
+    $top.innerHTML = createTopTable(getTopFiveBusinesses());
+
+    const $greeting = document.getElementById('greeting');
+    $greeting.innerHTML = createTaggedTemplate `Hey ${vars1}!, me llamo ${vars2} y conozco este listado de lenguajes ${vars3}}`;
+  </script>
+</body>
+
+</html>

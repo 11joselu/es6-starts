@@ -1,0 +1,33 @@
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  border: none;
+  background-color: rgb(246, 178, 107);
+  color: #444;
+  padding: 1rem;
+  font-size: inherit;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: rgb(246, 178, 107);
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+}
+
+table th {
+  padding: 1em;
+  background-color: rgb(246, 178, 107);
+}
+
+.text-center {
+  text-align: center;
+}

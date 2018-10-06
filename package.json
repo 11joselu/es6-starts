@@ -1,0 +1,31 @@
+{
+  "name": "es6-starts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:variables": "jest __tests__/01-variables/**.js",
+    "test:arrow-functions": "jest __tests__/02-arrow-functions/**.js",
+    "test:template-strings": "jest __tests__/03-template-strings/**.js",
+    "test:destructuring-spread": "jest __tests__/04-destructuring-spread/**.js",
+    "test:promises": "jest __tests__/05-promises/**.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/11joselu/es6-starts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/11joselu/es6-starts/issues"
+  },
+  "homepage": "https://github.com/11joselu/es6-starts#readme",
+  "devDependencies": {
+    "jest": "23.6.0"
+  },
+  "dependencies": {
+    "jquery": "3.3.1"
+  }
+}
