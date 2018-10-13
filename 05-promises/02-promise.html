@@ -6,16 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Promises</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="./paintOrder.js"></script>
 </head>
 
 <body>
+  <h1 class="text-center">Habitissimo Burguers</h1>
+  <form class="text-center" id="order-form">
+    <div class="form-group">
+      <label for="burguer">Burguer Type:</label>
+      <input type="text" id="burguer" name="burguer" placeholder="Burguer type...">
+    </div>
+
+    <div class="form-group">
+      <label for="drink">Drink Type:</label>
+      <input type="text" id="drink" name="drink" placeholder="Drink type...">
+    </div>
+
+    <button type="submit" role="submit">Order</button>
+  </form>
+  <ul id="indicator-list" class="indicator__list text-center"></ul>
+
+
   <script>
     const cookBurguer = (burguerType) => {};
 
     const makeDrink = (drinkType) => {};
 
-    const order = (burguerType, drinkType) => {};
+    const order = ({
+      orderId,
+      burguerType,
+      drinkType
+    }) => {};
+
+
+
+
+
+
+    const $orderForm = document.getElementById('order-form');
+
+    $orderForm.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+      const userOder = getUserOrder();
+
+      order(userOder);
+    });
   </script>
+
 </body>
 
 </html>

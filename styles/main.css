@@ -3,6 +3,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+li {
+  list-style: none;
+}
+
 button {
   border: none;
   background-color: rgb(246, 178, 107);
@@ -30,4 +34,72 @@ table th {
 
 .text-center {
   text-align: center;
+}
+
+.indicator {
+  display: inline-block;
+  background: #838079;
+  height: 120px;
+  padding: .2rem;
+  border-radius: 10px 10px 20px 20px;
+  border: 1px solid #8c8c8c;
+  box-shadow: 3px 4px #615e59;
+  color: #227961;
+}
+
+.indicator__screen {
+  background: white;
+  height: 40px;
+  padding-top: 1rem;
+  padding-left: .2rem;
+  padding-right: .2rem;
+  border-radius: 6px 6px 15px 15px;
+  font-size: 12px;
+  border: 1px solid #8c8c8c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 50px;
+}
+
+.indicator__screen.success {
+  background-color: #c5ffd4;
+  color: #0ba233;
+  border-color: #64ea87;
+}
+
+.indicator__screen.error {
+  background-color: #ffe7e8;
+  color: #e66465;
+  border-color: #e66465;
+}
+
+.indicator__number {
+  text-align: center;
+  margin-top: 2rem;
+  color: #505050;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.indicator__list li {
+  display: inline-block;
+  margin: .5rem 1rem;
+}
+
+.form-group {
+  margin: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: .5rem;
+}
+
+input {
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
 }
