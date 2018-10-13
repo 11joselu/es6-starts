@@ -20,11 +20,13 @@ const paintOrder = (orderId) => {
 }
 
 const updateIndicatorStatusById = (id, status = 'success') => {
-  const indicatorScreen = document.getElementById(`indicator__screen--${id}`);
-  const indicatorScreenStatus = document.getElementById(`indicator__screen__status--${id}`);
+  const $indicator = document.getElementById(`indicator--${id}`);
+  const $indicatorScreen = document.getElementById(`indicator__screen--${id}`);
+  const $indicatorScreenStatus = document.getElementById(`indicator__screen__status--${id}`);
 
-  indicatorScreen.classList.toggle(status);
-  indicatorScreenStatus.innerHTML = getStatusText(status);
+  $indicator.classList.toggle('indicator--shake');
+  $indicatorScreen.classList.toggle(status);
+  $indicatorScreenStatus.innerHTML = getStatusText(status);
 }
 
 const getStatusText = (status = 'success') => {
