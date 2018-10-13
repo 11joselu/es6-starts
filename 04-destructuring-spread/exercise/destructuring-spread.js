@@ -25,12 +25,11 @@ const business = {
  * @param {*} business
  * @param {*} businessOptions
  */
-const getBusinessExtra = (businessData, businessOptions) => {
-  if (businessOptions === undefined) {
-    throw new Error(`Could not add extra options into ${businessData.name}`);
-  }
-
-  return {};
+const getBusinessExtra = (businessData = business, businessOptions = {}) => {
+  return {
+    ...businessOptions,
+    ...business,
+  };
 }
 
 
@@ -42,7 +41,7 @@ const getBusinessExtra = (businessData, businessOptions) => {
  * devuelva siempre el año del usuario
  * @param {*} year
  */
-const getYearFromArray = (year) => {
+const getYearFromArray = ([, , year]) => {
   return year;
 }
 
@@ -63,14 +62,25 @@ const getYearFromArray = (year) => {
  *
  * @param {*} userObject
  */
-const getUserData = (userObject) => {
-  return {}
+const getUserData = ({
+  name = 'Unknown',
+  lastName = 'Unknown',
+  year = 'Unknown'
+}) => {
+  return {
+    name,
+    lastName,
+    year,
+  }
 }
 
+
+
+
 // UNCOMMENT FOR SERVER SIDE TEST
-/* module.exports = {
+module.exports = {
   business: business,
   getBusinessExtra: getBusinessExtra,
   getYearFromArray: getYearFromArray,
   getUserData: getUserData,
-}; */
+};

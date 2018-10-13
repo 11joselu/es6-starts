@@ -23,9 +23,11 @@ const bestBusinesses = [
 
 const ages = [15, 10, 15, 18, 62, 45, 26, 2, 62, 21, 62, 34];
 
-function getTopFiveBusinesses(type) {
-  return [];
-}
+const getTopFiveBusinesses = (type = businessType) => bestBusinesses.map((name, i) => ({
+  businessType: type,
+  businessName: name,
+  position: i + 1
+}));
 
 /**
  * Filtrar el array 'ages' obteniendo un nuevo array
@@ -34,7 +36,7 @@ function getTopFiveBusinesses(type) {
  * https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/filter
  */
 const getAllAdults = function (ages) {
-  return [];
+  return ages.filter(x => x >= 18);
 };
 
 /**
@@ -43,7 +45,7 @@ const getAllAdults = function (ages) {
  * Siempre tiene que establecer 'Is the same node'
  */
 function changeButtonTextOnClick($button) {
-  $button.addEventListener("click", evt => {
+  $button.addEventListener("click", function (evt) {
     const isSameElement = evt.target.nodeName === this.nodeName;
     let text = "";
     if (isSameElement) {
@@ -62,16 +64,10 @@ function changeButtonTextOnClick($button) {
  * @param {*} total
  * @param {*} tax
  */
-function calculateTax(total, tax) {
-  if (tax === undefined) {
-    throw new Error("Tax is not defined");
-  }
-
-  return total + total * tax;
-}
+const calculateTax = (total, tax = 0.21) => total + total * tax;
 
 // UNCOMMENT FOR SERVER SIDE TEST
-/* module.exports = {
+module.exports = {
   getTopFiveBusinesses: getTopFiveBusinesses,
   getAllAdults: getAllAdults,
   changeButtonTextOnClick: changeButtonTextOnClick,
@@ -79,4 +75,4 @@ function calculateTax(total, tax) {
   businessType: businessType,
   ages: ages,
   calculateTax: calculateTax,
-}; */
+};

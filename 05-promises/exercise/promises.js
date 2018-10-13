@@ -16,9 +16,21 @@ const delayedResponse = (cb) => {
  * @param {*} array
  */
 const makeAllCaps = (array = []) => {
-  return array.map((word) => {
-    return word.toUpperCase();
+  return new Promise((resolve, reject) => {
+    const newValues = array.map((word) => {
+      if (typeof word !== 'string') {
+        reject(new Error(`Error type of ${word} is not a string`));
+      }
+
+      return word.toUpperCase();
+    });
+
+    resolve(newValues);
   });
+}
+
+const promisify = (result) => {
+  return Promise.resolve(result);
 }
 
 
@@ -28,9 +40,7 @@ const makeAllCaps = (array = []) => {
  */
 const getBusinessId = (callback) => {
   const ids = businessIds;
-  delayedResponse(() => {
-    callback(ids);
-  });
+  return promisify(ids);
 }
 
 
@@ -44,9 +54,7 @@ const getBusinessNameByIds = (ids, callback) => {
     name: `Business-${id}`
   }));
 
-  delayedResponse(() => {
-    callback(businessName);
-  });
+  return promisify(businessName);
 }
 
 
@@ -62,9 +70,7 @@ const getExtendedBusinessData = (business, callback) => {
     userId: Date.now()
   }));
 
-  delayedResponse(() => {
-    callback(businessData);
-  });
+  return promisify(businessData);
 }
 
 
@@ -72,21 +78,20 @@ const getExtendedBusinessData = (business, callback) => {
  * Realiza los cambios necesarios para que este callback hell
  * para convertirlo a promesas y devolver el valor de businessData
  */
-getBusinessId((ids) => {
-  getBusinessNameByIds(ids, (business) => {
-    getExtendedBusinessData(business, (businessData) => {
-      return businessData;
-    });
+getBusinessId()
+  .then(ids => {
+    return getBusinessNameByIds(ids)
+  })
+  .then(business => {
+    return getExtendedBusinessData(business)
   });
-});
-
 
 // UNCOMMENT FOR SERVER SIDE TEST
-/* module.exports = {
+module.exports = {
   arrayOfWords: arrayOfWords,
   businessIds: businessIds,
   makeAllCaps: makeAllCaps,
   getBusinessId: getBusinessId,
   getBusinessNameByIds: getBusinessNameByIds,
   getExtendedBusinessData: getExtendedBusinessData
-}; */
+};

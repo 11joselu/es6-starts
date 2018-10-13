@@ -8,14 +8,14 @@ const {
 
 test('Debe mergear y generar un objeto businessExtra', () => {
   const newBusiness = {
-    ...business,
-    id: 21
+    ...business
   };
 
   const businessExtra = getBusinessExtra(newBusiness, {
     id: 51,
-    'facebook': 'facebook',
+    facebook: 'facebook',
     twitter: 'twitter',
+    name: 'pepito',
   });
 
   expect(businessExtra).toMatchObject({
@@ -51,7 +51,7 @@ test('Debe obtener los datos del usuario: nombre, apellido y edad', () => {
 
   expect(newUserData).toMatchObject({
     name: 'Unknown',
-    lastName: 'Unknwon',
+    lastName: 'Unknown',
     year: 26
   });
 });

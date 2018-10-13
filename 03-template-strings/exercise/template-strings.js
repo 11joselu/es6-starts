@@ -22,9 +22,37 @@ const getTopFiveBusinesses = (type = businessType) => bestBusinesses.map((name, 
  * @param {array} top top five business
  */
 const createTopTable = (top = []) => {
-  return ``;
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th>Business Name</th>
+          <th>Business Type</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${createBodyTable(top)}
+      </tbody>
+    </table>
+
+  `
 }
 
+function createBodyTable(top = []) {
+  return top
+    .map(({
+      businessName,
+      businessType,
+      position
+    }) => `
+    <tr>
+      <td>${businessName}</td>
+      <td>${businessType}</td>
+      <td>${position}</td>
+    </tr>
+  `)
+}
 /**
  * Escribir la función que permita generar un tagged template
  * cuya sentencia debe ser
@@ -34,14 +62,44 @@ const createTopTable = (top = []) => {
  *
  * Nota: La sentencia ya está siendo utilizada en index.html
  */
-const createTaggedTemplate = () => {
-  return ``;
+const createTaggedTemplate = (sentenceArr, ...args) => {
+  let sentence = '';
+  for (let i = 0; i < sentenceArr.length; i++) {
+
+    // Este es una posible solución, sino
+    // se le podría pasar directamente como string
+    // a la function
+    if (Array.isArray(args[i])) {
+      args[i] = args[i].join(' ');
+    }
+
+    sentence += sentenceArr[i] + (args[i] || '');
+  }
+
+  return sentence;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // UNCOMMENT FOR SERVER SIDE TEST
-/* module.exports = {
+module.exports = {
   getTopFiveBusinesses: getTopFiveBusinesses,
   createTopTable: createTopTable,
   createTaggedTemplate: createTaggedTemplate
-}; */
+};

@@ -1,5 +1,6 @@
 var businessName = 'Habitissimo';
-
+// This is for node solutions
+global.businessName = businessName;
 /**
  * getBusinessName
  *
@@ -13,8 +14,9 @@ var businessName = 'Habitissimo';
  * se implanta una solución o otra.
  */
 function getBusinessName() {
+  var businessName = global.businessName || undefined;
   if (!businessName) {
-    var businessName = 'Unknown SL';
+    businessName = 'Unknown SL';
   }
 
   return businessName;
@@ -29,16 +31,32 @@ function getBusinessName() {
  * el índice del nodo en el array de elementos encontrados.
  */
 function changeButtonTextOnClick() {
-  var nodes = document.getElementsByTagName('button');
-  for (var i = 0; i < nodes.length; i++) {
+  const nodes = document.getElementsByTagName('button');
+  for (let i = 0; i < nodes.length; i++) {
     nodes[i].addEventListener('click', function () {
       this.innerText = i;
     });
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // UNCOMMENT FOR SERVER SIDE TEST
-/* module.exports = {
+module.exports = {
   getBusinessName: getBusinessName,
   changeButtonTextOnClick: changeButtonTextOnClick
-}; */
+};
