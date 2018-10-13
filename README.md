@@ -5,6 +5,7 @@ Introducción a ES6
 ## Requisitos
 
 > Node >= v8
+
 > npm >= v6
 
 ## Instalar Node Ubuntu/Mint
@@ -14,7 +15,7 @@ https://github.com/creationix/nvm
 ```bash
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
-$ nvm install nvm install 8.11.3
+$ nvm install 8.11.3
 
 $ node -v # v8.11.3
 ```
