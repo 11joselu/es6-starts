@@ -3,3 +3,5 @@ class Business {
     return 'Habitissimo';
   }
 }
+
+export default Business;

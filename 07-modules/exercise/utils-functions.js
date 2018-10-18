@@ -1,8 +1,10 @@
-const sum = (a, b) => a + b;
+export const sum = (a, b) => a + b;
 
-const multiply = (a, b) => a * b;
+export const multiply = (a, b) => a * b;
 
-const BUSINESS_NAME = 'Habitissimo';
+export const BUSINESS_NAME = 'Habitissimo';
 
 // Exportar de manera 'default'
 const DEVELOPER = 'developer';
+
+export default DEVELOPER;
