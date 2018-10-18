@@ -29,16 +29,20 @@
 
 
   <script>
-    const cookBurguer = (burguerType) => {};
+    const cookBurguer = (type) => {
+      const burguerTypesList = ['chicken', 'beef', 'vegetarian'];
+      let time = 15000;
+    };
 
-    const makeDrink = (drinkType) => {};
+    const makeDrink = (drinkType = 'coke') => {};
 
     const order = ({
       orderId,
       burguerType,
       drinkType
-    }) => {};
-
+    }) => {
+      paintOrder(orderId);
+    };
 
 
 
@@ -49,9 +53,15 @@
     $orderForm.addEventListener('submit', function (evt) {
       evt.preventDefault();
       const userOder = getUserOrder();
-
-      order(userOder);
+      order(userOder)
+        .then((result) => {
+          updateIndicatorStatusById(result.orderId);
+        })
+        .catch((err) => {
+          updateIndicatorStatusById(userOder.orderId, 'error');
+        });
     });
+
   </script>
 
 </body>
