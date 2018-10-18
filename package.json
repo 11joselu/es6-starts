@@ -23,7 +23,11 @@
   },
   "homepage": "https://github.com/11joselu/es6-starts#readme",
   "devDependencies": {
-    "jest": "23.6.0"
+    "babel-core": "6.26.3",
+    "babel-env": "2.4.1",
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "regenerator-runtime": "0.12.1"
   },
   "dependencies": {
     "jquery": "3.3.1"
