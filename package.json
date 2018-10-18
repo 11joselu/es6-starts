@@ -9,6 +9,7 @@
     "test:template-strings": "jest __tests__/03-template-strings/**.js",
     "test:destructuring-spread": "jest __tests__/04-destructuring-spread/**.js",
     "test:promises": "jest __tests__/05-promises/**.js",
+    "test:modules": "jest __tests__/07-modules/**.js",
     "test": "jest"
   },
   "repository": {
