@@ -32,9 +32,32 @@
     const cookBurguer = (type) => {
       const burguerTypesList = ['chicken', 'beef', 'vegetarian'];
       let time = 15000;
+
+      if (type === burguerTypesList[burguerTypesList.length - 1]) {
+        time = 2000;
+      }
+
+      return new Promise((resolve, reject) => {
+
+        if (!burguerTypesList.includes(type.toLowerCase())) {
+          reject(`Burguer ${type} not found`);
+        }
+
+        const burguer = {
+          type
+        };
+
+        // Simulate async action
+        setTimeout(() => {
+          resolve(burguer)
+        }, time);
+
+      });
     };
 
-    const makeDrink = (drinkType = 'coke') => {};
+    const makeDrink = (drinkType = 'coke') => {
+      return Promise.resolve(drinkType);
+    };
 
     const order = ({
       orderId,
@@ -42,11 +65,16 @@
       drinkType
     }) => {
       paintOrder(orderId);
+      return cookBurguer(burguerType)
+        .then(burguerType => {
+          const drink = makeDrink(drinkType);
+          return {
+            burguer: burguerType,
+            drink,
+            orderId,
+          }
+        });
     };
-
-
-
-
 
     const $orderForm = document.getElementById('order-form');
 
